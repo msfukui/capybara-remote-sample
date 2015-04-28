@@ -1,0 +1,4 @@
+.vimprojects
+.bundle/
+.rspec
+vendor/
