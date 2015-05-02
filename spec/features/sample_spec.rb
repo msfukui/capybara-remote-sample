@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe 'BIGLOBE' do
+describe 'Access to Google' do
 
   before do
     visit '/'
   end
 
-  it { expect(page).to have_content('BIGLOBE') }
+  it { expect(page).to have_content('Google') }
 end
