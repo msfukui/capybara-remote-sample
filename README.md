@@ -83,7 +83,9 @@ capybara-remote-sample/
    |--features/
    |  |--sample_spec.rb
    |--spec_helper.rb
-   |--support/
+   |--supports/
+      |--capybara_fill_in_sample_helper.rb
+      |--have_searched_result_in_google.rb
 ```
 
 * spec/spec_helper.rb  
@@ -94,7 +96,7 @@ capybara-remote-sample/
     Google さんにアクセスして title を検査するだけのテストのサンプルです。  
     テストを書いてこのディレクトリ配下に xxx_spec.rb の名前で保存すると rspec がひたすらテストを実行してくれます。
 
-* spec/support/  
+* spec/supports/  
     Custom Matcher や共通で使う fill_in の設定などを入れておくディレクトリです。  
     ここに入った *.rb ファイルは rspec 実行時に自動で require されます。
 
@@ -122,6 +124,16 @@ $ RUN_REMOTE_BROWSER=ie RUN_REMOTE_HOST=192.168.1.1 bundle exec rspec
 ## License
 
 [MIT License](http://opensource.org/licenses/MIT "MIT License") です。
+
+## 参考リンク
+
+* [RSpec3 / Capybara / Capybara-Webkit チートシート - Rails Webook](http://ruby-rails.hatenadiary.com/entry/20150103/1420280252)
+
+* [RSpecでカスタムマッチャを作る - Qiita](http://qiita.com/kozy4324/items/9a6530736be7e92954bc)
+
+* [Capybara 2 にアップグレード - Qiita](http://qiita.com/quattro_4/items/64c5abdf86c7b40d40b1)
+
+* [Capybara で within した場所や find したノードに枠を付けてくれるやつ作った - Thanks Driven Life](http://gongo.hatenablog.com/entry/2013/08/01/000958)
 
 ## その他
 

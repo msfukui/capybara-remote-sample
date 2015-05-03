@@ -6,7 +6,7 @@ describe 'Access to Google' do
     visit '/'
   end
 
-  it { expect(page).to have_content('Google') }
+  it { expect(page).to have_content 'Google' }
 end
 
 describe 'Search "Capybara" in Google' do
@@ -15,12 +15,10 @@ describe 'Search "Capybara" in Google' do
     visit '/'
   end
 
-  it 'Google で Capybara の検索結果を取得できる。' do
+  specify do
     fill_in_search_google 'Capybara'
     click_button 'Google 検索'
 
-    within '#search' do
-      expect(page).to have_content('jnicklas/capybara')
-    end
+    expect(page).to have_searched_result_in_google 'jnicklas/capybara'
   end
 end
