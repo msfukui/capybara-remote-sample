@@ -1,7 +1,7 @@
 require 'capybara/rspec'
 require 'selenium-webdriver'
 
-Dir['spec/support/**/*.rb'].each { |f| require f }
+Dir[Pathname(Dir.pwd).join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.include Capybara::DSL
@@ -11,7 +11,7 @@ EXECUTABLE_BROWSERS = ['ie','internet_explorer','chrome','firefox','safari']
 webbrowser = ENV['RUN_REMOTE_BROWSER'] || 'firefox'
 webbrowser = 'firefox' unless EXECUTABLE_BROWSERS.include?(webbrowser)
 
-host = ENV['RUN_REMOTE_HOST'] || 'localhost'
+host = ENV['RUN_REMOTE_HOST'] || '127.0.0.1'
 port = ENV['RUN_REMOTE_PORT'] || '4444'
 
 Capybara.register_driver :remote_server do |app|
