@@ -16,9 +16,9 @@ describe 'Search "Capybara" in Google' do
   end
 
   specify do
-    fill_in_search_google 'Capybara'
-    click_button 'Google 検索'
+    fill_in_search_in_google 'Capybara'
+    click_search_button_in_google
 
-    expect(page).to have_searched_result_in_google 'jnicklas/capybara'
+    expect(page).to have_result_searched_in_google 'jnicklas/capybara'
   end
 end

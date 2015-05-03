@@ -6,14 +6,16 @@
 
 Capybara + Rspec を Selenium で remote 実行するサンプルです。
 
-PhantomJS(Poltergeist) での Ajax 関連のテストがつらかったので調べ物を兼ねて作りました。
+PhantomJS(Poltergeist) での Ajax 関連のテストが極めて不安定だったので、調べ物を兼ねて作りました。
 
-Capybara Webkit は...セットアップからしてつらいので...。
+Capybara Webkit はセットアップからしてつらいので動作は確認したもののあきらめています...。
+
+でも結局あまりつらみには変わりないかも..。
 
 ## Tested Environments
 
 * Client  
-    ScientificLinux 6.6  
+    ScientificLinux 6.6 (VirtualBox + Vagrant Guest)  
         Ruby 2.2.2 (rbenv)  
             Rspec 3.2.0  
             Capybara 2.4.4
@@ -53,7 +55,13 @@ $ bundle exec rspec
 テスト実行の前には、事前に remote server 側で JRE or JDK 及び http://www.seleniumhq.org/download/ から Selenium Server (Selenium RC Server) を download して起動しておく必要があります。
 
 ```
-$ java -jar selenium-server-standalone-2.45.0.jar
+> java -jar selenium-server-standalone-2.45.0.jar
+```
+
+Cygwin + Windows の環境などで、表示される文字列を UTF-8 にしたい場合は、以下の様に実行しておくとよいと思います。
+
+```
+$ java -Dfile.encoding=UTF-8 -jar selenium-server-standalone-2.45.0.jar
 ```
 
 また、テスト対象のブラウザに応じて remote server 側で以下のセットアップが必要です。
@@ -69,7 +77,7 @@ $ java -jar selenium-server-standalone-2.45.0.jar
     またテストの実行前に、remote server 側の IE のインターネット オプションの セキュリティ タブで全てのゾーンの保護モードの設定を無効にしておいてください。（そうしないとテストが必ず失敗します。）
 
 * Safari (MacOS X の場合のみ可)  
-    http://www.seleniumhq.org/download から Safari Server を download して PATH の通ったディレクトリに入れます。
+    http://www.seleniumhq.org/download から Safari Server を download して PATH の通ったディレクトリに入れます。（環境がないので未検証です。ごめんなさい。）
 
 ## Constitution
 
@@ -84,7 +92,7 @@ capybara-remote-sample/
    |  |--sample_spec.rb
    |--spec_helper.rb
    |--supports/
-      |--capybara_fill_in_sample_helper.rb
+      |--capybara_sample_helper.rb
       |--have_searched_result_in_google.rb
 ```
 
@@ -93,8 +101,8 @@ capybara-remote-sample/
     Rspec の実行時設定が必要な場合は、こちらでごにょごにょするとよいと思います。
 
 * spec/features/sample_spec.rb  
-    Google さんにアクセスして title を検査するだけのテストのサンプルです。  
-    テストを書いてこのディレクトリ配下に xxx_spec.rb の名前で保存すると rspec がひたすらテストを実行してくれます。
+    Google さんにアクセスして title を検査するだけのテストと、Google さんにアクセスして Capybara で検索して検索に成功したかどうかを検査するだけのテストのサンプルです。  
+    テストを書いてこのディレクトリ配下に xxx_spec.rb の名前で保存すると rspec がまとめてテストを実行してくれます。
 
 * spec/supports/  
     Custom Matcher や共通で使う fill_in の設定などを入れておくディレクトリです。  
@@ -121,11 +129,22 @@ capybara-remote-sample/
 $ RUN_REMOTE_BROWSER=ie RUN_REMOTE_HOST=192.168.1.1 bundle exec rspec
 ```
 
+## Notes
+
+* InternetExplorerDriver を IE11 環境で動作させる場合は、特殊なレジストリ・キーの設定が必要な模様です。詳細は [InternetExplorerDriver - selenium](https://code.google.com/p/selenium/wiki/InternetExplorerDriver) のページを参照してください。  
+    IE11 は正式にはサポートされているわけではなさそうですが、手元の Windows8.1 環境との組み合わせでは、 Suggest 箇所の動作は遅いものの、サンプルについて一応動作することを確認しています。
+
 ## License
 
 [MIT License](http://opensource.org/licenses/MIT "MIT License") です。
 
 ## 参考リンク
+
+* [jnicklas/capybara - GitHub](https://github.com/jnicklas/capybara)
+
+* [Documentation for jnicklas/capybara (master) Index](http://www.rubydoc.info/github/jnicklas/capybara/master/index)
+
+* [InternetExplorerDriver - selenium](https://code.google.com/p/selenium/wiki/InternetExplorerDriver)
 
 * [RSpec3 / Capybara / Capybara-Webkit チートシート - Rails Webook](http://ruby-rails.hatenadiary.com/entry/20150103/1420280252)
 
@@ -137,6 +156,6 @@ $ RUN_REMOTE_BROWSER=ie RUN_REMOTE_HOST=192.168.1.1 bundle exec rspec
 
 ## その他
 
-カピバラもかわいいけどバクもよいよー。マレーバクとてもよい。
+カピバラもかわいいけどバクもよい。マレーバクとてもよい。
 
 ![マレーバク](http://upload.wikimedia.org/wikipedia/commons/3/3e/Malayan_Tapir_001.jpg "マレーバク")
