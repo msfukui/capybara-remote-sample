@@ -1,7 +1,7 @@
 require 'capybara/rspec'
 require 'selenium-webdriver'
 
-Dir[Pathname(Dir.pwd).join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Pathname(Dir.pwd).join('spec/supports/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.include Capybara::DSL

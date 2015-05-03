@@ -121,12 +121,10 @@ $ RUN_REMOTE_BROWSER=ie RUN_REMOTE_HOST=192.168.1.1 bundle exec rspec
 
 ## License
 
-[MIT License](http://opensource.org/licenses/MIT "MIT License").
+[MIT License](http://opensource.org/licenses/MIT "MIT License") です。
 
 ## その他
 
-カピバラもかわいいけどバクもよいよー。とてもよい。
+カピバラもかわいいけどバクもよいよー。マレーバクとてもよい。
 
 ![マレーバク](http://upload.wikimedia.org/wikipedia/commons/3/3e/Malayan_Tapir_001.jpg "マレーバク")
-
-[EOF]
