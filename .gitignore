@@ -1,6 +1,5 @@
 .vimprojects
 *.swp
 .bundle/
-.rspec
 vendor/
 Gemfile.lock
