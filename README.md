@@ -27,7 +27,7 @@ Capybara Webkit はセットアップからしてつらいので動作は確認�
     * Windows 8.1 64bit版
         * FireFox 37.0.2 64bit版
         * Internet Explorer11 11.0.9600.17728 64bit版
-        * Google Chrome 42.0.2311.135 64bit版
+        * Google Chrome 42.0.2311.135 32bit版
         * Java 1.8.0_45 64bit版
             * Selenium RC Server 2.45.0
     * MacOS X Yosemite 10.10.3
