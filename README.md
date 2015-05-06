@@ -26,14 +26,18 @@ Capybara Webkit はセットアップからしてつらいので動作は確認�
 * Remote Server
     * Windows 8.1 64bit版
         * FireFox 37.0.2 64bit版
-        * Internet Explorer11 11.0.9600.17728 64bit版
-        * Google Chrome 42.0.2311.135 32bit版
+        * Internet Explorer Driver Server 2.45.0 64bit版
+            * Internet Explorer11 11.0.9600.17728 64bit版
+        * ChromeDriver 2.15 32bit版
+            * Google Chrome 42.0.2311.135 64bit版
         * Java 1.8.0_45 64bit版
             * Selenium RC Server 2.45.0
     * MacOS X Yosemite 10.10.3
-        * Google Chrome 42.0.2311.135
-        * Safari 8.0.5(10600.5.17)
-        * Java 1.8.0_05
+        * ChromeDriver 2.15 32bit版
+            * Google Chrome 42.0.2311.135
+        * SafariDriver 2.45.0
+            * Safari 8.0.5(10600.5.17)
+        * Java 1.8.0_05 64bit版
             * Selenium RC Server 2.45.0
 
 ## Usage
