@@ -14,25 +14,27 @@ Capybara Webkit はセットアップからしてつらいので動作は確認�
 
 ## Tested Environments
 
-* Client  
-    ScientificLinux 6.6 (VirtualBox + Vagrant Guest)  
-        Ruby 2.2.2 (rbenv)  
-            Rspec 3.2.0  
-            Capybara 2.4.4
-
-* Remote Server  
-    Windows 8.1  
-        FireFox 37.0.2  
-        Internet Explorer11 11.0.9600.17728  
-        Google Chrome 42.0.2311.135  
-    Java 1.8.0_45  
-        Selenium RC Server 2.45.0
-
-## Untested Environments
-
-* Remote Server  
-    MacOS X  
-        Safari
+* Client
+    * ScientificLinux 6.6 (VirtualBox + Vagrant Guest)
+        * Ruby 2.2.2 (rbenv)
+            * Rspec 3.2.0
+            * Capybara 2.4.4
+    * MacOS X Yosemite 10.10.3
+        * Ruby 2.2.2 (rbenv)
+            * Rspec 3.2.0
+            * Capybara 2.4.4
+* Remote Server
+    * Windows 8.1 64bit版
+        * FireFox 37.0.2 64bit版
+        * Internet Explorer11 11.0.9600.17728 64bit版
+        * Google Chrome 42.0.2311.135 64bit版
+        * Java 1.8.0_45 64bit版
+            * Selenium RC Server 2.45.0
+    * MacOS X Yosemite 10.10.3
+        * Google Chrome 42.0.2311.135
+        * Safari 8.0.5(10600.5.17)
+        * Java 1.8.0_05
+            * Selenium RC Server 2.45.0
 
 ## Usage
 
@@ -66,18 +68,18 @@ $ java -Dfile.encoding=UTF-8 -jar selenium-server-standalone-2.45.0.jar
 
 また、テスト対象のブラウザに応じて remote server 側で以下のセットアップが必要です。
 
-* FireFox  
+* FireFox
     インストールするだけで OK.
 
-* Google Chrome  
+* Google Chrome
     https://sites.google.com/a/chromium.org/chromedriver/downloads から ChromeDriver を download して PATH の通ったフォルダに入れます。
 
-* Internet Explorer (Windows の場合のみ可)  
+* Internet Explorer (Windows の場合のみ可)
     http://www.seleniumhq.org/download から 32bit 版 or 64bit 版の Internet Explorer Driver Server を download して PATH の通ったフォルダに入れます。  
     またテストの実行前に、remote server 側の IE のインターネット オプションの セキュリティ タブで全てのゾーンの保護モードの設定を無効にしておいてください。（そうしないとテストが必ず失敗します。）
 
 * Safari (MacOS X の場合のみ可)  
-    http://www.seleniumhq.org/download から Safari Server を download して PATH の通ったディレクトリに入れます。（環境がないので未検証です。ごめんなさい。）
+    http://www.seleniumhq.org/download から Safari Server を download して実行すると Safari の拡張機能としてインストールが行われます。
 
 ## Constitution
 
