@@ -26,7 +26,7 @@ Capybara Webkit はセットアップからしてつらいので動作は確認�
 * Remote Server
     * Windows 8.1 64bit版
         * FireFox 37.0.2 64bit版
-        * Internet Explorer Driver Server 2.45.0 64bit版
+        * Internet Explorer Driver Server 2.45.0 32bit版
             * Internet Explorer11 11.0.9600.17728 64bit版
         * ChromeDriver 2.15 32bit版
             * Google Chrome 42.0.2311.135 64bit版
@@ -79,8 +79,8 @@ $ java -Dfile.encoding=UTF-8 -jar selenium-server-standalone-2.45.0.jar
     https://sites.google.com/a/chromium.org/chromedriver/downloads から ChromeDriver を download して PATH の通ったフォルダに入れます。
 
 * Internet Explorer (Windows の場合のみ可)
-    http://www.seleniumhq.org/download から 32bit 版 or 64bit 版の Internet Explorer Driver Server を download して PATH の通ったフォルダに入れます。  
-    またテストの実行前に、remote server 側の IE のインターネット オプションの セキュリティ タブで全てのゾーンの保護モードの設定を無効にしておいてください。（そうしないとテストが必ず失敗します。）
+    http://www.seleniumhq.org/download から 32bit 版の Internet Explorer Driver Server を download して PATH の通ったフォルダに入れます。64 bit 版の Driver は 32bit 版、64 bit 版の混在環境の影響で SendKeys 時に一文字あたり 5 秒かかるという不具合がある模様なので、現時点では使用しない方がよいと思います。（参考：[Why is Selenium InternetExplorerDriver Webdriver very slow in debug mode (visual studio 2010 and IE9)](http://stackoverflow.com/questions/8850211/why-is-selenium-internetexplorerdriver-webdriver-very-slow-in-debug-mode-visual)）  
+    またテストの実行前に、remote server 側の IE のインターネット オプションの セキュリティ タブで全てのゾーンの保護モードの設定を有効または無効にしておいてください。（全てのゾーンの保護モードの設定を有効か無効かに揃えてください。）そうしないとテストが必ず失敗します。（参考：[Selenium (webDriver) と IE11の組み合わせについて](http://qiita.com/gluelan2013/items/6977cde545e2bcf08081)）
 
 * Safari (MacOS X の場合のみ可)  
     http://www.seleniumhq.org/download から Safari Server を download して実行すると Safari の拡張機能としてインストールが行われます。
@@ -138,7 +138,9 @@ $ RUN_REMOTE_BROWSER=ie RUN_REMOTE_HOST=192.168.1.1 bundle exec rspec
 ## Notes
 
 * InternetExplorerDriver を IE11 環境で動作させる場合は、特殊なレジストリ・キーの設定が必要な模様です。詳細は [InternetExplorerDriver - selenium](https://code.google.com/p/selenium/wiki/InternetExplorerDriver) のページを参照してください。  
-    IE11 は正式にはサポートされているわけではなさそうですが、手元の Windows8.1 環境との組み合わせでは、 Suggest 箇所の動作は遅いものの、サンプルについて一応動作することを確認しています。
+    IE11 は正式にはサポートされているわけではなさそうですが、手元の Windows8.1 環境との組み合わせでは、サンプルについて一応動作することを確認しています。
+
+* Windows 2003 Server, 2008 Server で InternetExplorerDriver を動作させる場合は、事前に IE ESC の設定を解除してください。JavaScript が無効化されているため、テストに必ず失敗します。
 
 ## License
 
