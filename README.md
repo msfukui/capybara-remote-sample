@@ -132,7 +132,7 @@ capybara-remote-sample/
 こんな感じで実行するとよいと思います。
 
 ```
-$ RUN_REMOTE_BROWSER=ie RUN_REMOTE_HOST=192.168.1.1 bundle exec rspec
+$ RUN_REMOTE_BROWSER=ie RUN_REMOTE_HOST=192.168.1.1 RUN_REMOTE_PORT=4445 bundle exec rspec
 ```
 
 ## Notes

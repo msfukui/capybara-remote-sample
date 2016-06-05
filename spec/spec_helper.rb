@@ -27,6 +27,6 @@ Capybara.default_driver = :remote_server
 
 Capybara.ignore_hidden_elements = true
 
-Capybara.default_wait_time = 15
+Capybara.default_max_wait_time = 15
 
 Capybara.app_host = 'http://www.google.co.jp'
